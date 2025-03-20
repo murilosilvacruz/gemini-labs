@@ -1,9 +1,0 @@
-[build]
-  publish = "templates"
-  functions = "functions" 
-
-[[redirects]]
-  from = "/api/gemini-proxy"
-  to = "/.netlify/functions/gemini-proxy"
-  status = 200
-  force = true
