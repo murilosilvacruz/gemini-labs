@@ -19,6 +19,12 @@ def index():
     
     return render_template('index.html', historico=session.get('mensagens', []))
 
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Padrão para 5000 se não for especificado
+    app.run(host="0.0.0.0", port=port)
+
+
 @app.route('/consultar', methods=['POST'])
 def consultar():
     """Rota para processar consultas à API do Gemini"""
