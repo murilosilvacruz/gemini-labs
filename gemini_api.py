@@ -1,14 +1,11 @@
 import base64
 import os
-from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from dotenv import load_dotenv
 
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
-if not api_key:
-    raise ValueError("API Key not found. Make sure you have a .env file with GEMINI_API_KEY.")
-
 client = genai.Client(api_key=api_key)
  
 chat = client.chats.create(
