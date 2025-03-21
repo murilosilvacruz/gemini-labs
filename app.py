@@ -4,8 +4,8 @@ from gemini_api import consultar_gemini, processar_imagem_base64
 import uuid
 import os
 
+
 app = Flask(__name__)
-# Configurar uma chave secreta para as sessões
 app.secret_key = os.environ.get("SECRET_KEY", "chave_secreta_de_desenvolvimento")
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Limitar uploads a 16MB
 
@@ -19,11 +19,11 @@ def index():
     
     return render_template('index.html', historico=session.get('mensagens', []))
 
-
 if __name__ == "__main__":
+    # Obtém a porta da variável de ambiente PORT
     port = int(os.environ.get("PORT", 5000))  # Padrão para 5000 se não for especificado
+    # Configura para escutar em 0.0.0.0 e na porta especificada
     app.run(host="0.0.0.0", port=port)
-
 
 @app.route('/consultar', methods=['POST'])
 def consultar():
